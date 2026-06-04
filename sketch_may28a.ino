@@ -4,7 +4,7 @@
 
 const int   PIN_EMG = 34;       // broche ou est branché le capteur
 const float ALPHA   = 0.05f;    // puissance du lissage des données ici 5% de la nouvelle valeur
-const int   SEUIL   = 250;      // seuil de détection de contraction
+const int   SEUIL   = 200;      // seuil de détection de contraction
 
 float smoothedValue = 0.0f;
 int   sampleCount   = 0;        // compteur du nombre d'échantillons
@@ -153,7 +153,7 @@ void setup()
   while (WiFi.status() != WL_CONNECTED) // attend la connexion au WiFi
     delay(500);
 
-  webSocket.begin("192.168.0.25", 3001, "/"); // connexion avec le WebSocket
+  webSocket.begin("192.168.0.130q", 3001, "/"); // connexion avec le WebSocket
   webSocket.onEvent(webSocketEvent);
   webSocket.setReconnectInterval(5000); // retente toutes les 5s si déconnecté
 }
